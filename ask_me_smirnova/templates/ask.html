@@ -1,0 +1,39 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block user %}
+{% include 'layouts/registered_user.html' %}
+{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-9">
+            <h1 class="text-info-emphasis">New Question</h1>
+            <p class="text-danger">Too many tags!</p>
+            <div class="d-flex flex-column gap-3">
+                <div class="mb-3 row">
+                    <label for="inputTitle" class="col-sm-2 col-form-label text-info-emphasis">Title</label>
+                    <div class="col-sm-7">
+                        <input type="text" class="form-control" id="inputTitle" placeholder="Please enter your title..." minlength="10" maxlength="256">
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="inputText" class="col-sm-2 col-form-label text-info-emphasis">Text</label>
+                    <div class="col-sm-7">
+                        <textarea class="form-control" id="inputText" rows="5" placeholder="Please enter your text..." minlength="0" maxlength="2000"></textarea>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="inputTags" class="col-sm-2 col-form-label text-info-emphasis">Tags</label>
+                    <div class="col-sm-7">
+                        <input type="text" class="form-control" id="inputTags" placeholder="Please enter your tags..." minlength="1" maxlength="50">
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-7">
+                        <button class="btn btn-outline-info" type="submit">Ask!</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+{% endblock %}

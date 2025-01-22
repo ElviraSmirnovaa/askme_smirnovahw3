@@ -1,0 +1,73 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block user %}
+{% include 'layouts/unregistered_user.html' %}
+{% endblock %}
+{% block content %}
+<div class="d-flex flex-column gap-3">
+    <div class="question">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-3">
+                    <div class="border mb-3 w-75" style="height: 150px">
+                        <img src="{% static '/img/йог-лягушка.jpg'%}" alt="Avatar" class="img-fluid"
+                             style="height: 100%, width: 100%">
+                    </div>
+                    <input class="form-control" type="number" value="{{ q_likes }}" placeholder="Default input"
+                           aria-label="default input example">
+
+                </div>
+                <div class="col-9">
+
+                    <h3 class="card-title text-info-emphasis">
+                        <a href="{% url 'question' question.id %}"></a>
+                        {{ question.title }}
+                    </h3>
+                    <p class="card-text text-info-emphasis">{{ question.text }}</p>
+
+                    <div class="d-flex gap-5">
+                        <div class="text-info-emphasis">
+                            Tags:
+                            {% for tag in question.tags.all %}
+                            <a href="{% url 'tag' tag.name %}" class="card-link">{{ tag.name }}</a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    {% for answer in answers %}
+    <div class="card w-100 bg-info-subtle" style="width: 18rem;">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-3">
+                    <div class="border mb-2 w-75" style="height: 150px">
+                        <img src="{% static answer.user_avatar %}" alt="Avatar" class="img-fluid"
+                             style="height:100%; width: 100%">
+                    </div>
+                    <input class="form-control" type="number" value="{{ answer.num_likes }}" placeholder="Default input"
+                           aria-label="default input example">
+
+                </div>
+                <div class="col-9">
+                    <h5 class="card-title">{{ answer.author }}</h5>
+                    <p class="card-text text-info-emphasis">{{ answer.text }}</p>
+                    <div class="mt-3">
+                        <input class="custom-checkbox" type="checkbox" style="zoom: 2;">
+                        Correct
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    {% include 'layouts/pagination.html' %}
+    <hr>
+    <form action="" class="mb-4">
+        <textarea class="form-control mb-4" id="inputText" rows="5" placeholder="Enter your answer here..."></textarea>
+        <button class="btn btn-outline-info w-10" type="submit">Answer</button>
+    </form>
+</div>
+{% endblock %}

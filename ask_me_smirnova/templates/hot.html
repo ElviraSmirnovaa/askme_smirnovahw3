@@ -1,0 +1,19 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block user %}
+{% include 'layouts/registered_user.html' %}
+{% endblock %}
+{% block content %}
+    <div class="d-flex gap-3 align-items-center">
+        <h1 class="text-info-emphasis">Hot Questions</h1>
+        <a href="{% url 'index' %}">New Questions</a>
+    </div>
+    <div class="col-8">
+        {% for question in questions %}
+            {% include 'layouts/onecard.html' %}
+        {% endfor %}
+
+        {% include 'layouts/pagination.html' %}
+
+    </div>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% load static %}
+<div class="d-flex gap-1">
+                <img src="{% static '/img/мен-лягушка.jpg' %}" alt="Avatar" class="user-logo">
+                <div>
+                    <div style="color: white;">
+                        Mr. Kva-Kva
+                    </div>
+                    <a class="setting-link " href="{% url 'settings' %}">Settings</a>
+                    <a class="logout-link ms-2" href="#">Log out</a>
+                </div>
+            </div>

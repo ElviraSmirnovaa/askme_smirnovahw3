@@ -1,0 +1,33 @@
+{% load static %}
+<article class="card w-100 bg-info-subtle mb-3" style="width: 18rem;">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-3">
+                <div class="border mb-4">
+                    <img src="{% static 'img/вумен_лягушка.jpg' %}" alt="Avatar" class="img-fluid">
+                </div>
+                <input class="form-control" type="number" value="{{ question.num_likes }}" placeholder="Default input"
+                       aria-label="default input example">
+            </div>
+
+            <div class="col-9">
+
+                <h5 class="card-title text-info-emphasis">
+                    <a href="{% url 'question' question.id %}">{{ question.title }}</a>
+                </h5>
+                <p class="card-text text-info-emphasis">{{ question.text|truncatewords:30 }}</p>
+
+                <div class="d-flex gap-5">
+                    <a href="{% url 'question' question.id %}" class="card-link">Answer ({{ question.num_answers }})</a>
+                    <div class="text-info-emphasis">
+
+                        Tags:
+                        {% for tag in question.tags.all %}
+                        <a href="{% url 'tag' tag.name %}" class="card-link">{{ tag.name }}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</article>

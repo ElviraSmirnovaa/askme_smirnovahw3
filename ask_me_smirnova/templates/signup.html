@@ -1,0 +1,60 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block user %}
+{% include 'layouts/unregistered_user.html' %}
+{% endblock %}
+{% block content %}
+<div class="row">
+    <div class="col-9">
+        <h1 class="text-info-emphasis">Sign Up</h1>
+        <p class="text-danger">Sorry, this email address already registered!</p>
+        <div class="d-flex flex-column gap-3">
+            <div class="mb-3 row">
+                <label for="inputLogin" class="col-sm-2 col-form-label text-info-emphasis">Login</label>
+                <div class="col-sm-5">
+                    <input type="Login" class="form-control" id="inputLogin" placeholder="Please enter your login..."
+                           minlength="10" maxlength="100">
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="inputEmail" class="col-sm-2 col-form-label text-info-emphasis">Email</label>
+                <div class="col-sm-5">
+                    <input type="Email" class="form-control" id="inputEmail" placeholder="Please enter your email..."
+                           minlength="10" maxlength="100">
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="inputNickName" class="col-sm-2 col-form-label text-info-emphasis">NickName</label>
+                <div class="col-sm-5">
+                    <input type="NickName" class="form-control" id="inputNickName"
+                           placeholder="Please enter your nickname..." minlength="10" maxlength="100">
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="inputPassword" class="col-sm-2 col-form-label text-info-emphasis">Password</label>
+                <div class="col-sm-5">
+                    <input type="Password" class="form-control" id="inputPassword"
+                           placeholder="Please enter your password..." minlength="1" maxlength="10">
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="inputRepeatPassword" class="col-sm-2 col-form-label text-info-emphasis">Repeat
+                    Password</label>
+                <div class="col-sm-5">
+                    <input type="RepeatPassword" class="form-control" id="inputRepeatPassword"
+                           placeholder="Please repeat your password..." minlength="1" maxlength="10">
+                </div>
+            </div>
+            <div class="mb-4 row">
+                <label for="inputAvatar" class="col-sm-2 col-form-label text-info-emphasis">Avatar</label>
+                <div class="col-sm-5">
+                    <div class="d-flex align-items-center">
+                        <input type="file" class="form-control" id="inputAvatar" accept="image/*">
+                    </div>
+                    <small class="text-muted">Please select a file with your avatar...</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
